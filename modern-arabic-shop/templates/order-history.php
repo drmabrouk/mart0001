@@ -41,7 +41,7 @@ $orders = new WP_Query($args);
                     </div>
 
                     <div class="mas-order-summary">
-                        <p><?php _e('الإجمالي', 'modern-arabic-shop'); ?>: <?php echo esc_html($total); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></p>
+                        <p><?php _e('الإجمالي', 'modern-arabic-shop'); ?>: <?php echo esc_html($total); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></p>
                     </div>
 
                     <div class="mas-order-actions">

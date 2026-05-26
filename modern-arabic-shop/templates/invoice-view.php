@@ -32,7 +32,7 @@ $total = get_post_meta($order_id, '_total', true);
                 <tr>
                     <td><?php _e('منتج عينة', 'modern-arabic-shop'); ?></td>
                     <td>1</td>
-                    <td>100 <?php _e('ريال', 'modern-arabic-shop'); ?></td>
+                    <td>100 <?php _e('ج.م', 'modern-arabic-shop'); ?></td>
                 </tr>
             </tbody>
         </table>
@@ -41,19 +41,19 @@ $total = get_post_meta($order_id, '_total', true);
     <div class="mas-invoice-footer">
         <div class="mas-invoice-row">
             <span><?php _e('المجموع الفرعي', 'modern-arabic-shop'); ?>:</span>
-            <span><?php echo esc_html($subtotal); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></span>
+            <span><?php echo esc_html($subtotal); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></span>
         </div>
         <div class="mas-invoice-row">
             <span><?php _e('الضريبة', 'modern-arabic-shop'); ?>:</span>
-            <span><?php echo esc_html($tax); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></span>
+            <span><?php echo esc_html($tax); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></span>
         </div>
         <div class="mas-invoice-row">
             <span><?php _e('رسوم التوصيل', 'modern-arabic-shop'); ?>:</span>
-            <span><?php echo esc_html($delivery); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></span>
+            <span><?php echo esc_html($delivery); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></span>
         </div>
         <div class="mas-invoice-total mas-rounded">
             <span><?php _e('الإجمالي النهائي', 'modern-arabic-shop'); ?>:</span>
-            <span><?php echo esc_html($total); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></span>
+            <span><?php echo esc_html($total); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></span>
         </div>
     </div>
 </div>

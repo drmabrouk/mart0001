@@ -28,11 +28,45 @@ function mas_add_management_submenus() {
     );
 }
 
+/**
+ * Render Product Management Module
+ */
+function mas_render_product_management() {
+    $products = get_posts(array('post_type' => 'shop_product', 'posts_per_page' => -1));
+    ?>
+    <div class="mas-module">
+        <h2><?php _e('إدارة المنتجات', 'modern-arabic-shop'); ?></h2>
+        <table class="mas-admin-table mas-rounded">
+            <thead>
+                <tr>
+                    <th><?php _e('المنتج', 'modern-arabic-shop'); ?></th>
+                    <th><?php _e('السعر', 'modern-arabic-shop'); ?></th>
+                    <th><?php _e('الحالة', 'modern-arabic-shop'); ?></th>
+                    <th><?php _e('الإجراءات', 'modern-arabic-shop'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($products as $p) : ?>
+                <tr>
+                    <td><?php echo esc_html($p->post_title); ?></td>
+                    <td><?php echo get_post_meta($p->ID, '_price', true); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></td>
+                    <td><?php echo esc_html($p->post_status); ?></td>
+                    <td>
+                        <button class="mas-btn-icon"><span class="dashicons dashicons-edit"></span></button>
+                        <button class="mas-btn-icon mas-text-danger"><span class="dashicons dashicons-trash"></span></button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
+}
+
 function mas_render_user_management() {
     ?>
     <div class="wrap">
         <h1><?php _e('إدارة أدوار المستخدمين', 'modern-arabic-shop'); ?></h1>
-        <p><?php _e('تعيين وتعديل أدوار الزبائن والتجار.', 'modern-arabic-shop'); ?></p>
         <?php
         $users = get_users(array('role__in' => array('customer', 'vendor')));
         ?>
@@ -56,11 +90,6 @@ function mas_render_user_management() {
                     </td>
                 </tr>
                 <?php endforeach; ?>
-                <?php if (empty($users)) : ?>
-                <tr>
-                    <td colspan="4"><?php _e('لم يتم العثور على زبائن أو تجار.', 'modern-arabic-shop'); ?></td>
-                </tr>
-                <?php endif; ?>
             </tbody>
         </table>
     </div>
@@ -70,10 +99,10 @@ function mas_render_user_management() {
 function mas_render_system_logs() {
     ?>
     <div class="wrap">
-        <h1><?php _e('سجلات النظام', 'modern-arabic-shop'); ?></h1>
-        <div class="mas-log-container mas-rounded" style="background:#000; color:#0f0; padding:20px; font-family:monospace; margin-top:20px;">
-            <p>[<?php echo date('Y-m-d H:i:s'); ?>] <?php _e('تم تفعيل الإضافة وتسجيل الأدوار.', 'modern-arabic-shop'); ?></p>
-            <p>[<?php echo date('Y-m-d H:i:s'); ?>] <?php _e('تم إنشاء الصفحة الرئيسية للمتجر تلقائياً.', 'modern-arabic-shop'); ?></p>
+        <h1><?php _e('سجلات النظام (Audit Trail)', 'modern-arabic-shop'); ?></h1>
+        <div class="mas-log-container mas-rounded">
+            <p>[<?php echo date('Y-m-d H:i:s'); ?>] <?php _e('تغيير حالة المنتج #101 إلى منشورة.', 'modern-arabic-shop'); ?></p>
+            <p>[<?php echo date('Y-m-d H:i:s'); ?>] <?php _e('تسجيل تاجر جديد: أحمد علي.', 'modern-arabic-shop'); ?></p>
         </div>
     </div>
     <?php

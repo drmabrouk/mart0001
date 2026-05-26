@@ -13,7 +13,7 @@
     </div>
     <div class="mas-product-info">
         <h3 class="mas-product-title"><?php the_title(); ?></h3>
-        <p class="mas-product-price"><?php echo get_post_meta(get_the_ID(), '_price', true); ?> <?php _e('ريال', 'modern-arabic-shop'); ?></p>
+        <p class="mas-product-price"><?php echo get_post_meta(get_the_ID(), '_price', true); ?> <?php _e('ج.م', 'modern-arabic-shop'); ?></p>
         <button class="mas-add-to-cart mas-button"><?php _e('أضف للسلة', 'modern-arabic-shop'); ?></button>
     </div>
 </div>

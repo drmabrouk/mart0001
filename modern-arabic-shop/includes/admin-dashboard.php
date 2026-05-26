@@ -28,7 +28,7 @@ function mas_render_admin_dashboard() {
         <div class="mas-stats-grid">
             <div class="mas-stat-card mas-rounded">
                 <h3><?php _e('إجمالي المبيعات', 'modern-arabic-shop'); ?></h3>
-                <p class="mas-stat-value">0 <?php _e('ريال', 'modern-arabic-shop'); ?></p>
+                <p class="mas-stat-value">0 <?php _e('ج.م', 'modern-arabic-shop'); ?></p>
             </div>
             <div class="mas-stat-card mas-rounded">
                 <h3><?php _e('إجمالي الطلبات', 'modern-arabic-shop'); ?></h3>

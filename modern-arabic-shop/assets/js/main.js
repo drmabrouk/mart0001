@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
                     var html = '';
                     if (response.length > 0) {
                         response.forEach(function(item) {
-                            html += '<div class="mas-search-item"><a href="' + item.url + '">' + item.title + ' (' + item.price + ' SAR)</a></div>';
+                            html += '<div class="mas-search-item"><a href="' + item.url + '">' + item.title + ' (' + item.price + ' ج.م)</a></div>';
                         });
                     } else {
                         html = '<div>No results found</div>';
@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
                 success: function(response) {
                     if (response.success) {
                         alert(response.data);
-                        location.reload(); // Simple reload to reflect status change
+                        location.reload();
                     } else {
                         alert(response.data);
                     }
