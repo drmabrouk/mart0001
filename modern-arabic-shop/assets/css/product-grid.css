@@ -1,0 +1,71 @@
+/* Product Grid Styles - 2 products per row */
+.mas-product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+}
+
+.mas-product-card {
+    background: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mas-product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mas-placeholder-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #f0f0f0;
+}
+
+.mas-product-info {
+    padding: 12px;
+    text-align: center;
+}
+
+.mas-product-title {
+    font-size: 14px;
+    margin: 0 0 8px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mas-product-price {
+    font-weight: bold;
+    color: #e44d26;
+    margin-bottom: 12px;
+}
+
+.mas-add-to-cart {
+    width: 100%;
+    background: #007cba;
+    color: #fff;
+    border: none;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.mas-add-to-cart:hover {
+    background: #006799;
+}
+
+/* Rounded Corners Logic */
+.mas-rounded {
+    border-radius: 20px;
+}
+
+.mas-button {
+    border-radius: 25px;
+}

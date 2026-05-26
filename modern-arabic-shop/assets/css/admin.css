@@ -1,0 +1,20 @@
+/* Admin Styles */
+.mas-admin-dashboard {
+    margin-top: 20px;
+}
+
+/* User Management Table Styles */
+.mas-user-table {
+    margin-top: 20px;
+}
+
+/* Log Container Styles */
+.mas-log-container {
+    background: #1c1c1c;
+    color: #00ff00;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}

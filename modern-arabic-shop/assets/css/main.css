@@ -1,0 +1,56 @@
+/* Main Frontend Styles */
+.mas-search-container {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+#masSearch {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#masSearchResults {
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.mas-search-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.mas-search-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.mas-search-item:hover {
+    background: #f5f5f5;
+}
+
+.mas-filters-container {
+    padding: 0 15px 20px;
+}
+
+.mas-filter-btn {
+    width: 100%;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}

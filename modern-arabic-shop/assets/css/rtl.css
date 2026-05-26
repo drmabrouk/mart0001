@@ -1,0 +1,36 @@
+/* RTL Support Styles */
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+}
+
+/* Floating Navigation RTL Adjustments */
+.mas-bottom-nav {
+    left: 10px;
+    right: 10px;
+}
+
+.mas-nav-item {
+    text-align: center;
+}
+
+/* Vendor FAB RTL Position */
+.mas-vendor-fab {
+    left: 20px;
+    right: auto;
+}
+
+/* Product Grid RTL Adjustments */
+.mas-product-card {
+    float: right;
+}
+
+/* Rounded Corners - Global Radius */
+.mas-rounded {
+    border-radius: 25px !important;
+}
+
+.mas-button {
+    border-radius: 50px !important;
+}
