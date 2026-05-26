@@ -16,9 +16,13 @@ function mas_filter_products() {
     $min_price = isset($_POST['min_price']) ? floatval($_POST['min_price']) : 0;
     $max_price = isset($_POST['max_price']) ? floatval($_POST['max_price']) : 999999;
 
+    // Using WP_Query but disabling cache for real-time results
     $args = array(
         'post_type' => 'shop_product',
         'posts_per_page' => -1,
+        'update_post_meta_cache' => false,
+        'update_post_term_cache' => false,
+        'cache_results' => false,
         'meta_query' => array(
             'relation' => 'AND',
             array(
@@ -39,7 +43,7 @@ function mas_filter_products() {
             include MAS_PLUGIN_DIR . 'templates/product-grid-item.php';
         }
     } else {
-        echo '<p>' . __('No products match your filters.', 'modern-arabic-shop') . '</p>';
+        echo '<p>' . __('لا توجد منتجات تطابق هذه التصفية.', 'modern-arabic-shop') . '</p>';
     }
     $html = ob_get_clean();
 

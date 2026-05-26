@@ -83,3 +83,30 @@ msgstr "عرض الفاتورة"
 
 msgid "Cancel Order"
 msgstr "إلغاء الطلب"
+
+msgid "Professional Dashboard"
+msgstr "لوحة التحكم الاحترافية"
+
+msgid "Statistics"
+msgstr "الإحصائيات"
+
+msgid "Manage Products"
+msgstr "إدارة المنتجات"
+
+msgid "Users"
+msgstr "المستخدمين"
+
+msgid "Vendor Portal"
+msgstr "بوابة التاجر"
+
+msgid "Inventory"
+msgstr "المخزون"
+
+msgid "Add Product"
+msgstr "إضافة منتج"
+
+msgid "Sales"
+msgstr "المبيعات"
+
+msgid "All rights reserved"
+msgstr "جميع الحقوق محفوظة"

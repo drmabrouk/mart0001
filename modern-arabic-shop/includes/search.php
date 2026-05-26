@@ -13,24 +13,26 @@ add_action('wp_ajax_nopriv_mas_predictive_search', 'mas_predictive_search');
 function mas_predictive_search() {
     check_ajax_referer('mas-ajax-nonce', 'nonce');
 
+    global $wpdb;
     $search_term = sanitize_text_field($_POST['term']);
 
-    $args = array(
-        'post_type' => 'shop_product',
-        's' => $search_term,
-        'posts_per_page' => 5,
-    );
+    // Direct DB query to bypass caching
+    $results_raw = $wpdb->get_results($wpdb->prepare(
+        "SELECT ID, post_title FROM {$wpdb->posts}
+         WHERE post_title LIKE %s
+         AND post_type = 'shop_product'
+         AND post_status = 'publish'
+         LIMIT 5",
+        '%' . $wpdb->esc_like($search_term) . '%'
+    ));
 
-    $query = new WP_Query($args);
     $results = array();
-
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
+    if ($results_raw) {
+        foreach ($results_raw as $post) {
             $results[] = array(
-                'title' => get_the_title(),
-                'url' => get_permalink(),
-                'price' => get_post_meta(get_the_ID(), '_price', true),
+                'title' => $post->post_title,
+                'url' => get_permalink($post->ID),
+                'price' => get_post_meta($post->ID, '_price', true), // Meta might still be cached, but direct post fetch is more reliable
             );
         }
     }

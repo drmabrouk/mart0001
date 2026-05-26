@@ -1,56 +1,97 @@
-/* Main Frontend Styles */
-.mas-search-container {
-    position: relative;
-    margin-bottom: 20px;
-    padding: 0 15px;
+/* Standalone UI Layout Styles */
+body.mas-standalone-ui {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdfdfd;
 }
 
-#masSearch {
-    width: 100%;
-    padding: 12px 20px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    box-sizing: border-box;
+.mas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#masSearchResults {
-    position: absolute;
-    top: 100%;
-    left: 15px;
-    right: 15px;
+/* Header */
+.mas-header {
     background: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    margin: 10px;
     border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 100;
-    display: none;
-    max-height: 300px;
-    overflow-y: auto;
 }
 
-.mas-search-item {
-    padding: 10px 15px;
-    border-bottom: 1px solid #f9f9f9;
+.mas-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 }
 
-.mas-search-item a {
+.mas-logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007cba;
     text-decoration: none;
-    color: #333;
-    display: block;
 }
 
-.mas-search-item:hover {
-    background: #f5f5f5;
+.mas-header-search-container {
+    flex-grow: 1;
+    max-width: 600px;
 }
 
-.mas-filters-container {
-    padding: 0 15px 20px;
+/* Navigations */
+.mas-desktop-nav {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 15px;
 }
 
-.mas-filter-btn {
-    width: 100%;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    padding: 10px;
-    cursor: pointer;
+.mas-desktop-nav a {
+    text-decoration: none;
+    color: #444;
     font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.mas-desktop-nav a:hover {
+    color: #007cba;
+}
+
+/* Main Content */
+.mas-main-content {
+    padding: 40px 0 100px;
+}
+
+/* Footer */
+.mas-footer {
+    background: #fff;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+    color: #888;
+}
+
+/* Rounded Corners & Animations */
+.mas-rounded {
+    border-radius: 20px;
+}
+
+.mas-button, .mas-nav-item, .mas-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive Fluidity */
+@media (max-width: 768px) {
+    .mas-desktop-nav {
+        display: none;
+    }
+
+    .mas-header-top {
+        flex-direction: column;
+        text-align: center;
+    }
 }

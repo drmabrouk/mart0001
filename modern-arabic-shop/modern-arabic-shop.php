@@ -27,8 +27,8 @@ function mas_activate_plugin() {
     // Create roles
     mas_register_roles();
 
-    // Create home page
-    mas_create_shop_home_page();
+    // Create required pages
+    mas_create_required_pages();
 
     // Flush rewrite rules
     flush_rewrite_rules();
@@ -54,15 +54,12 @@ function mas_init_plugin() {
 }
 
 /**
- * Frontend Hooks
+ * STANDALONE UI: Override theme templates
  */
-add_action('wp_footer', 'mas_render_floating_nav');
-function mas_render_floating_nav() {
-    if (wp_is_mobile()) {
-        include MAS_PLUGIN_DIR . 'templates/bottom-nav.php';
-
-        if (current_user_can('vendor')) {
-            include MAS_PLUGIN_DIR . 'templates/vendor-fab.php';
-        }
+add_filter('template_include', 'mas_override_templates');
+function mas_override_templates($template) {
+    if (is_page(array('home', 'search', 'cart', 'orders', 'profile', 'settings', 'admin-panel'))) {
+        return MAS_PLUGIN_DIR . 'templates/master-layout.php';
     }
+    return $template;
 }

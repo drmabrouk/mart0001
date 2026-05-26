@@ -7,6 +7,38 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+add_shortcode('mas_home', 'mas_render_home_shortcode');
+function mas_render_home_shortcode() {
+    return do_shortcode('[mas_product_grid]');
+}
+
+add_shortcode('mas_orders', 'mas_render_orders_shortcode');
+function mas_render_orders_shortcode() {
+    ob_start();
+    include MAS_PLUGIN_DIR . 'templates/order-history.php';
+    return ob_get_clean();
+}
+
+add_shortcode('mas_profile', 'mas_render_profile_shortcode');
+function mas_render_profile_shortcode() {
+    if (current_user_can('vendor')) {
+        ob_start();
+        include MAS_PLUGIN_DIR . 'templates/vendor-portal.php';
+        return ob_get_clean();
+    }
+    return '<p>' . __('مرحباً بك في ملفك الشخصي.', 'modern-arabic-shop') . '</p>';
+}
+
+add_shortcode('mas_admin_panel', 'mas_render_admin_panel_shortcode');
+function mas_render_admin_panel_shortcode() {
+    if (!current_user_can('manage_options')) {
+        return '<p>' . __('عذراً، لا تملك صلاحية الوصول لهذه الصفحة.', 'modern-arabic-shop') . '</p>';
+    }
+    ob_start();
+    include MAS_PLUGIN_DIR . 'templates/custom-admin-panel.php';
+    return ob_get_clean();
+}
+
 add_shortcode('mas_product_grid', 'mas_render_product_grid');
 function mas_render_product_grid() {
     ob_start();
