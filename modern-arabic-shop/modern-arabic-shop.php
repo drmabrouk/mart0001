@@ -58,8 +58,25 @@ function mas_init_plugin() {
  */
 add_filter('template_include', 'mas_override_templates');
 function mas_override_templates($template) {
-    if (is_page(array('home', 'search', 'cart', 'orders', 'profile', 'settings', 'admin-panel'))) {
+    if (is_page(array('home', 'search', 'cart', 'orders', 'profile', 'settings', 'management'))) {
         return MAS_PLUGIN_DIR . 'templates/master-layout.php';
     }
     return $template;
+}
+
+/**
+ * SPA Content Handler
+ */
+add_action('wp_ajax_mas_get_page_content', 'mas_get_page_content');
+add_action('wp_ajax_nopriv_mas_get_page_content', 'mas_get_page_content');
+function mas_get_page_content() {
+    $slug = sanitize_text_field($_POST['slug']);
+    $page = get_page_by_path($slug);
+    if ($page) {
+        wp_send_json_success(array(
+            'title'   => get_the_title($page->ID),
+            'content' => apply_filters('the_content', $page->post_content)
+        ));
+    }
+    wp_send_json_error();
 }

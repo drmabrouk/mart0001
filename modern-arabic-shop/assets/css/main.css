@@ -1,43 +1,120 @@
-/* Final UI Optimizations & Animations */
-.mas-standalone-ui * {
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+/* Professional Ecosystem Styles - Burgundy Theme */
+body.mas-standalone-ui {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+    direction: rtl;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+.mas-container-fluid {
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.mas-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Architecture */
+.mas-header {
+    background: #FFFFFF;
+    padding: 25px 0;
+    border-bottom: 1px solid #F0F0F0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.mas-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.mas-logo a {
+    font-size: 26px;
+    font-weight: 800;
+    color: #800020; /* Burgundy */
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.mas-header-search-container {
+    flex: 1;
+    max-width: 800px;
+}
+
+#masSearch {
+    width: 100%;
+    padding: 16px 30px;
+    background: #F8F8F8;
+    border: none;
+    border-radius: 50px !important;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+#masSearch:focus {
+    box-shadow: 0 0 0 2px #800020;
+}
+
+.mas-desktop-actions {
+    display: flex;
+    gap: 25px;
+}
+
+.mas-action-btn {
+    color: #000000;
+    transition: color 0.2s;
+}
+
+.mas-action-btn:hover {
+    color: #800020;
+}
+
+/* High-Radius Global Design */
+.mas-rounded {
+    border-radius: 24px !important;
+}
+
+.mas-button {
+    background: #800020;
+    color: #FFFFFF;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hardware Accelerated Hover/Active States */
-.mas-button:hover, .mas-card:hover, .mas-nav-item:active {
-    will-change: transform;
+.mas-button:active {
+    transform: scale(0.95);
 }
 
-/* Burgundy Active State */
-.mas-active-burgundy {
-    background: #800020 !important;
-    color: #FFFFFF !important;
+/* Main Content */
+.mas-main-content {
+    min-height: 80vh;
+    padding: 40px 0 120px;
+    transition: opacity 0.3s ease;
 }
 
-/* Tap Highlight for Mobile */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Responsive Grid Fluidity */
-.mas-product-grid {
-    animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Search suggestions box styling */
-#masSearchResults {
-    border-radius: 20px;
-    border: 1px solid #F0F0F0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-top: 10px;
-}
-
-.mas-search-item:hover {
-    background: #F8F8F8;
-    color: #800020;
+/* Footer */
+.mas-footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid #F0F0F0;
+    color: #666;
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Activator Logic
+ * Plugin Activator Logic - Standalone Ecosystem
  */
 
 if (!defined('ABSPATH')) {
@@ -15,7 +15,7 @@ function mas_create_required_pages() {
         'orders'      => array('title' => 'طلباتي', 'content' => '[mas_orders]'),
         'profile'     => array('title' => 'الحساب', 'content' => '[mas_profile]'),
         'settings'    => array('title' => 'الإعدادات', 'content' => '[mas_settings]'),
-        'admin-panel' => array('title' => 'لوحة الإدارة', 'content' => '[mas_admin_panel]'),
+        'management'  => array('title' => 'إدارة النظام', 'content' => '[mas_admin_panel]'),
     );
 
     foreach ($pages as $slug => $data) {

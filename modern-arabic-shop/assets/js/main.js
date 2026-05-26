@@ -1,6 +1,40 @@
-/* Main JS */
+/* Standalone SPA-like JS Logic */
 jQuery(document).ready(function($) {
-    // Predictive Search
+    // AJAX Page Navigation
+    function loadPage(slug) {
+        $('.mas-main-content').css('opacity', 0.5);
+        $.ajax({
+            url: mas_ajax_obj.ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'mas_get_page_content',
+                slug: slug,
+                nonce: mas_ajax_obj.nonce
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.mas-main-content').html('<div class="mas-container">' + response.data.content + '</div>');
+                    document.title = response.data.title;
+                    window.history.pushState({slug: slug}, response.data.title, '/' + slug);
+                }
+                $('.mas-main-content').css('opacity', 1);
+            }
+        });
+    }
+
+    // Handle internal links
+    $(document).on('click', 'a[href^="' + window.location.origin + '"]', function(e) {
+        var url = new URL($(this).attr('href'));
+        var slug = url.pathname.substring(1);
+        var allowedSlugs = ['home', 'search', 'cart', 'orders', 'profile', 'settings', 'management'];
+
+        if (allowedSlugs.includes(slug)) {
+            e.preventDefault();
+            loadPage(slug);
+        }
+    });
+
+    // Predictive Search with dropdown suggestions
     $('#masSearch').on('keyup', function() {
         var term = $(this).val();
         if (term.length > 2) {
@@ -29,38 +63,10 @@ jQuery(document).ready(function($) {
         }
     });
 
-    // Toggle Filter Options
-    $('#masFilterBtn').on('click', function() {
-        $('#masFilterOptions').slideToggle();
-    });
-
-    // Filtering Logic
-    $('#masMinPrice, #masMaxPrice').on('change', function() {
-        var min = $('#masMinPrice').val();
-        var max = $('#masMaxPrice').val();
-
-        $.ajax({
-            url: mas_ajax_obj.ajaxurl,
-            type: 'POST',
-            data: {
-                action: 'mas_filter_products',
-                min_price: min,
-                max_price: max,
-                nonce: mas_ajax_obj.nonce
-            },
-            success: function(response) {
-                if (response.success) {
-                    $('.mas-product-grid').html(response.data);
-                }
-            }
-        });
-    });
-
     // Cancel Order AJAX
-    $('.mas-cancel-order').on('click', function() {
+    $(document).on('click', '.mas-cancel-order', function() {
         var btn = $(this);
         var orderId = btn.data('id');
-
         if (confirm('هل أنت متأكد من إلغاء الطلب؟')) {
             $.ajax({
                 url: mas_ajax_obj.ajaxurl,
@@ -73,19 +79,17 @@ jQuery(document).ready(function($) {
                 success: function(response) {
                     if (response.success) {
                         alert(response.data);
-                        location.reload();
-                    } else {
-                        alert(response.data);
+                        loadPage('orders');
                     }
                 }
             });
         }
     });
 
-    // Close search results when clicking outside
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('.mas-search-container').length) {
-            $('#masSearchResults').hide();
+    // Handle back button
+    window.onpopstate = function(event) {
+        if (event.state && event.state.slug) {
+            loadPage(event.state.slug);
         }
-    });
+    };
 });

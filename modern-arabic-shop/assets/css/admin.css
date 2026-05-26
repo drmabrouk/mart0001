@@ -1,117 +1,108 @@
-/* Professional Burgundy Admin Portal Styles */
+/* Professional Admin Portal - Burgundy Ecosystem */
 .mas-admin-portal {
     background: #FFFFFF;
-    border: none;
-    overflow: hidden;
-    margin-top: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 150px);
+    overflow: hidden;
+    margin-top: 0;
 }
 
-/* Top Bar - Minimalist */
+/* Extended Top Bar */
 .mas-portal-topbar {
-    height: 60px;
+    height: 70px;
     background: #FFFFFF;
     border-bottom: 1px solid #F0F0F0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+    flex-shrink: 0;
 }
 
-.mas-topbar-left {
+.mas-topbar-left, .mas-topbar-right {
     font-weight: 700;
+    font-size: 14px;
+}
+
+.mas-topbar-center {
+    font-size: 18px;
     color: #800020;
 }
 
-/* Wrapper */
+/* Sidebar & Viewport Wrapper */
 .mas-portal-wrapper {
     display: flex;
     flex: 1;
+    overflow: hidden;
 }
 
-/* Right Sidebar - Burgundy Focus */
+/* Right-side Sidebar (Burgundy) */
 .mas-portal-sidebar {
     width: 280px;
-    background: #800020; /* Burgundy */
+    background: #800020;
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    order: 2; /* Right align in RTL/Flex */
-}
-
-.mas-sidebar-header {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.mas-sidebar-header h3 {
-    color: #FFFFFF;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 700;
+    order: 2; /* Right-hand side in RTL */
+    flex-shrink: 0;
 }
 
 .mas-portal-nav {
-    flex: 1;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .mas-portal-nav a {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 18px 30px;
+    padding: 20px 30px;
     text-decoration: none;
-    color: rgba(255,255,255,0.8);
-    font-size: 15px;
+    color: rgba(255,255,255,0.7);
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.mas-portal-nav a:hover, .mas-portal-nav a.active {
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.1);
 }
 
 .mas-portal-nav a.active {
-    background: rgba(255,255,255,0.1);
-    color: #FFFFFF;
-    border-left: 5px solid #FFFFFF;
+    border-left-color: #FFFFFF;
 }
 
-.mas-portal-nav a:hover {
-    background: rgba(255,255,255,0.05);
-    color: #FFFFFF;
-}
-
-.mas-portal-nav .dashicons {
-    color: #FFFFFF;
-}
-
-/* Main Viewport */
+/* Left-side Main Viewport */
 .mas-portal-main {
     flex: 1;
-    padding: 40px;
+    padding: 50px;
     background: #FAFAFA;
     overflow-y: auto;
-    order: 1; /* Left align in RTL/Flex */
+    order: 1; /* Left-hand side in RTL */
 }
 
-/* Dashboard Grid Cards */
-.mas-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+.mas-portal-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
 }
 
-.mas-stat-card {
-    background: #FFFFFF;
-    padding: 30px;
-    border: 1px solid #F0F0F0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+.mas-portal-section.active {
+    display: block;
 }
 
-.mas-stat-value {
-    color: #800020 !important;
-    font-size: 32px !important;
+@media (max-width: 991px) {
+    .mas-portal-sidebar {
+        width: 80px;
+    }
+    .mas-portal-sidebar span {
+        display: none;
+    }
+    .mas-portal-nav a {
+        justify-content: center;
+        padding: 25px 0;
+    }
+    .mas-portal-main {
+        padding: 20px;
+    }
 }

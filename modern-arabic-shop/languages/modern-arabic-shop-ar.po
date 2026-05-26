@@ -1,112 +1,38 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Modern Arabic Shop 1.0.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-27 10:00+0000\n"
-"PO-Revision-Date: 2023-10-27 10:00+0000\n"
-"Last-Translator: Jules\n"
-"Language-Team: Arabic\n"
-"Language: ar\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"Language: ar\n"
 
-msgid "Customer"
-msgstr "زبون"
+msgid "Home"
+msgstr "الرئيسية"
 
-msgid "Vendor"
-msgstr "تاجر"
+msgid "Search"
+msgstr "البحث"
 
 msgid "Cart"
 msgstr "السلة"
 
-msgid "Profile"
-msgstr "الحساب"
-
-msgid "History"
-msgstr "الطلبات"
-
-msgid "Settings"
-msgstr "الإعدادات"
-
-msgid "Add to Cart"
-msgstr "أضف للسلة"
-
-msgid "SAR"
-msgstr "ريال"
-
-msgid "Order Invoice"
-msgstr "فاتورة الطلب"
-
-msgid "Product"
-msgstr "المنتج"
-
-msgid "Quantity"
-msgstr "الكمية"
-
-msgid "Price"
-msgstr "السعر"
-
-msgid "Subtotal"
-msgstr "المجموع الفرعي"
-
-msgid "Tax"
-msgstr "الضريبة"
-
-msgid "Delivery Fee"
-msgstr "رسوم التوصيل"
-
-msgid "Grand Total"
-msgstr "الإجمالي النهائي"
-
 msgid "My Orders"
 msgstr "طلباتي"
 
-msgid "Pending"
-msgstr "قيد الانتظار"
+msgid "Management"
+msgstr "الإدارة"
 
-msgid "Processing"
-msgstr "قيد التنفيذ"
-
-msgid "Shipped"
-msgstr "تم الشحن"
-
-msgid "Delivered"
-msgstr "تم التوصيل"
-
-msgid "Cancelled"
-msgstr "ملغي"
-
-msgid "View Invoice"
-msgstr "عرض الفاتورة"
-
-msgid "Cancel Order"
-msgstr "إلغاء الطلب"
-
-msgid "Professional Dashboard"
+msgid "Professional Admin Portal"
 msgstr "لوحة التحكم الاحترافية"
 
-msgid "Statistics"
-msgstr "الإحصائيات"
+msgid "EGP"
+msgstr "ج.م"
 
-msgid "Manage Products"
-msgstr "إدارة المنتجات"
+msgid "Order History"
+msgstr "سجل الطلبات"
 
-msgid "Users"
-msgstr "المستخدمين"
+msgid "Order Details"
+msgstr "تفاصيل الطلب"
 
-msgid "Vendor Portal"
-msgstr "بوابة التاجر"
+msgid "Start Shopping"
+msgstr "ابدأ التسوق"
 
-msgid "Inventory"
-msgstr "المخزون"
-
-msgid "Add Product"
-msgstr "إضافة منتج"
-
-msgid "Sales"
-msgstr "المبيعات"
-
-msgid "All rights reserved"
-msgstr "جميع الحقوق محفوظة"
+msgid "Admin"
+msgstr "المسؤول"

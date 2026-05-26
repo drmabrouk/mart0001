@@ -1,26 +1,25 @@
-/* Floating Bottom Navigation - Burgundy/Retina Optimized */
+/* Floating Bottom Navigation - Ecosystem Burgundy Theme */
 .mas-bottom-nav {
     position: fixed;
     bottom: 20px;
     left: 20px;
     right: 20px;
     height: 75px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #FFFFFF;
     border-radius: 40px;
     box-shadow: 0 15px 35px rgba(128, 0, 32, 0.15);
     display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 999999;
-    padding: 0 20px;
-    border: 1px solid rgba(128, 0, 32, 0.1);
+    padding: 0 15px;
+    padding-bottom: env(safe-area-inset-bottom, 0); /* iOS Notch Support */
+    border: 1px solid rgba(128, 0, 32, 0.05);
 }
 
 .mas-nav-item {
     text-decoration: none;
-    color: #333;
+    color: #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,28 +28,27 @@
 }
 
 .mas-nav-item svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     margin-bottom: 4px;
-    transition: stroke 0.2s;
 }
 
 .mas-nav-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
 }
 
 .mas-nav-item:active {
-    transform: scale(0.9);
     color: #800020;
 }
 
 .mas-nav-item:active svg {
     stroke: #800020;
+    transform: scale(0.9);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .mas-bottom-nav {
-        display: none; /* Hide on desktop as per Sidebar-Top requirement */
+        display: none;
     }
 }

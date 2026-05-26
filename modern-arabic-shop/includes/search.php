@@ -1,6 +1,6 @@
 <?php
 /**
- * Advanced Search Engine Logic
+ * Advanced Search Engine Logic - SPA Suggestions
  */
 
 if (!defined('ABSPATH')) {
@@ -16,23 +16,24 @@ function mas_predictive_search() {
     global $wpdb;
     $search_term = sanitize_text_field($_POST['term']);
 
-    // Direct DB query to bypass caching
+    // Direct DB query for instant synchronization
     $results_raw = $wpdb->get_results($wpdb->prepare(
         "SELECT ID, post_title FROM {$wpdb->posts}
          WHERE post_title LIKE %s
          AND post_type = 'shop_product'
          AND post_status = 'publish'
-         LIMIT 5",
+         LIMIT 6",
         '%' . $wpdb->esc_like($search_term) . '%'
     ));
 
     $results = array();
     if ($results_raw) {
         foreach ($results_raw as $post) {
+            $price = get_post_meta($post->ID, '_price', true);
             $results[] = array(
                 'title' => $post->post_title,
                 'url' => get_permalink($post->ID),
-                'price' => get_post_meta($post->ID, '_price', true), // Meta might still be cached, but direct post fetch is more reliable
+                'price' => $price ? $price : '0',
             );
         }
     }
