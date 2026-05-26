@@ -1,85 +1,43 @@
-/* Main Standalone UI Styles */
-body.mas-standalone-ui {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fdfdfd;
-    direction: rtl; /* Ensure RTL globally for this UI */
+/* Final UI Optimizations & Animations */
+.mas-standalone-ui * {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mas-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Hardware Accelerated Hover/Active States */
+.mas-button:hover, .mas-card:hover, .mas-nav-item:active {
+    will-change: transform;
 }
 
-/* Rounded Corners Design Language */
-.mas-rounded {
-    border-radius: 20px !important;
+/* Burgundy Active State */
+.mas-active-burgundy {
+    background: #800020 !important;
+    color: #FFFFFF !important;
 }
 
-.mas-button {
-    border-radius: 30px !important;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    background: #007cba;
-    color: #fff;
+/* Tap Highlight for Mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.mas-button:hover {
-    background: #006799;
-    transform: translateY(-2px);
+/* Responsive Grid Fluidity */
+.mas-product-grid {
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* Header Refinement */
-.mas-header {
-    background: #fff;
-    padding: 15px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    border-bottom: 1px solid #eee;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.mas-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
+/* Search suggestions box styling */
+#masSearchResults {
+    border-radius: 20px;
+    border: 1px solid #F0F0F0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 10px;
 }
 
-/* Desktop Navigation Architecture */
-.mas-desktop-nav {
-    display: flex;
-    gap: 30px;
-    margin-top: 15px;
-    padding: 10px 0;
-}
-
-.mas-desktop-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 15px;
-    padding-bottom: 5px;
-}
-
-.mas-desktop-nav a:hover {
-    color: #007cba;
-    border-bottom: 2px solid #007cba;
-}
-
-/* Main Viewport Content Area */
-.mas-main-content {
-    padding: 40px 0 100px;
-}
-
-/* Footer Architecture */
-.mas-footer {
-    background: #fff;
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid #eee;
-    color: #999;
-    font-size: 14px;
+.mas-search-item:hover {
+    background: #F8F8F8;
+    color: #800020;
 }

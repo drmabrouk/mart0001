@@ -1,71 +1,71 @@
-/* Product Grid Styles - 2 products per row */
+/* Responsive Product Grid Architecture */
 .mas-product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 15px;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+/* Mobile: Fixed 2-product-per-row */
+@media (max-width: 767px) {
+    .mas-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 16px;
+    }
+}
+
+/* Desktop: Adaptive 4-product-per-row */
+@media (min-width: 768px) {
+    .mas-product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .mas-product-card {
-    background: #fff;
-    border: 1px solid #eee;
+    background: #FFFFFF;
+    border: 1px solid #F0F0F0;
     overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
     display: flex;
     flex-direction: column;
 }
 
-.mas-product-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+.mas-product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
-.mas-placeholder-img {
+.mas-product-image img {
     width: 100%;
     aspect-ratio: 1/1;
-    background: #f0f0f0;
+    object-fit: cover;
 }
 
 .mas-product-info {
-    padding: 12px;
+    padding: 16px;
     text-align: center;
 }
 
 .mas-product-title {
-    font-size: 14px;
-    margin: 0 0 8px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 10px;
 }
 
 .mas-product-price {
-    font-weight: bold;
-    color: #e44d26;
-    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #800020; /* Burgundy */
+    margin-bottom: 16px;
 }
 
 .mas-add-to-cart {
     width: 100%;
-    background: #007cba;
-    color: #fff;
-    border: none;
-    padding: 8px 0;
-    cursor: pointer;
-    font-size: 12px;
-    transition: background 0.3s;
+    background: #800020;
+    color: #FFFFFF;
 }
 
 .mas-add-to-cart:hover {
-    background: #006799;
-}
-
-/* Rounded Corners Logic */
-.mas-rounded {
-    border-radius: 20px;
-}
-
-.mas-button {
-    border-radius: 25px;
+    background: #600018;
 }

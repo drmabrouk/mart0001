@@ -1,19 +1,21 @@
-/* Floating Bottom Navigation Bar Styles */
+/* Floating Bottom Navigation - Burgundy/Retina Optimized */
 .mas-bottom-nav {
     position: fixed;
     bottom: 20px;
     left: 20px;
     right: 20px;
-    height: 70px;
-    background: #fff;
-    border-radius: 35px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 75px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 40px;
+    box-shadow: 0 15px 35px rgba(128, 0, 32, 0.15);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 9999;
-    padding: 0 15px;
-    border: 1px solid #eee;
+    z-index: 999999;
+    padding: 0 20px;
+    border: 1px solid rgba(128, 0, 32, 0.1);
 }
 
 .mas-nav-item {
@@ -23,20 +25,32 @@
     flex-direction: column;
     align-items: center;
     flex: 1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mas-nav-item .dashicons {
-    font-size: 24px;
+.mas-nav-item svg {
     width: 24px;
     height: 24px;
     margin-bottom: 4px;
+    transition: stroke 0.2s;
 }
 
 .mas-nav-label {
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 700;
 }
 
 .mas-nav-item:active {
-    color: #007cba;
+    transform: scale(0.9);
+    color: #800020;
+}
+
+.mas-nav-item:active svg {
+    stroke: #800020;
+}
+
+@media (min-width: 768px) {
+    .mas-bottom-nav {
+        display: none; /* Hide on desktop as per Sidebar-Top requirement */
+    }
 }
