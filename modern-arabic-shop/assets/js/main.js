@@ -56,6 +56,32 @@ jQuery(document).ready(function($) {
         });
     });
 
+    // Cancel Order AJAX
+    $('.mas-cancel-order').on('click', function() {
+        var btn = $(this);
+        var orderId = btn.data('id');
+
+        if (confirm('هل أنت متأكد من إلغاء الطلب؟')) {
+            $.ajax({
+                url: mas_ajax_obj.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'mas_cancel_order',
+                    order_id: orderId,
+                    nonce: mas_ajax_obj.nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.data);
+                        location.reload(); // Simple reload to reflect status change
+                    } else {
+                        alert(response.data);
+                    }
+                }
+            });
+        }
+    });
+
     // Close search results when clicking outside
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.mas-search-container').length) {

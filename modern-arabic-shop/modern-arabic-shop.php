@@ -47,6 +47,7 @@ function mas_init_plugin() {
     require_once MAS_PLUGIN_DIR . 'includes/post-types.php';
     require_once MAS_PLUGIN_DIR . 'includes/search.php';
     require_once MAS_PLUGIN_DIR . 'includes/filters.php';
+    require_once MAS_PLUGIN_DIR . 'includes/orders.php';
     require_once MAS_PLUGIN_DIR . 'includes/admin-dashboard.php';
     require_once MAS_PLUGIN_DIR . 'includes/admin-management.php';
     require_once MAS_PLUGIN_DIR . 'includes/shortcodes.php';

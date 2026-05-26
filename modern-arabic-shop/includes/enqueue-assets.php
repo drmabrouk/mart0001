@@ -19,10 +19,16 @@ function mas_enqueue_frontend_assets() {
         if (current_user_can('vendor')) {
             wp_enqueue_style('mas-vendor-fab', MAS_PLUGIN_URL . 'assets/css/vendor-fab.css', array(), '1.0.0');
         }
+
+        // Order Tracking styles
+        wp_enqueue_style('mas-order-tracking', MAS_PLUGIN_URL . 'assets/css/order-tracking.css', array(), '1.0.0');
     }
 
     // Product Grid styles
     wp_enqueue_style('mas-product-grid', MAS_PLUGIN_URL . 'assets/css/product-grid.css', array(), '1.0.0');
+
+    // Invoice styles
+    wp_enqueue_style('mas-invoice', MAS_PLUGIN_URL . 'assets/css/invoice.css', array(), '1.0.0');
 
     // RTL Support
     if (is_rtl()) {

@@ -35,3 +35,51 @@ msgstr "أضف للسلة"
 
 msgid "SAR"
 msgstr "ريال"
+
+msgid "Order Invoice"
+msgstr "فاتورة الطلب"
+
+msgid "Product"
+msgstr "المنتج"
+
+msgid "Quantity"
+msgstr "الكمية"
+
+msgid "Price"
+msgstr "السعر"
+
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+msgid "Tax"
+msgstr "الضريبة"
+
+msgid "Delivery Fee"
+msgstr "رسوم التوصيل"
+
+msgid "Grand Total"
+msgstr "الإجمالي النهائي"
+
+msgid "My Orders"
+msgstr "طلباتي"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "Processing"
+msgstr "قيد التنفيذ"
+
+msgid "Shipped"
+msgstr "تم الشحن"
+
+msgid "Delivered"
+msgstr "تم التوصيل"
+
+msgid "Cancelled"
+msgstr "ملغي"
+
+msgid "View Invoice"
+msgstr "عرض الفاتورة"
+
+msgid "Cancel Order"
+msgstr "إلغاء الطلب"

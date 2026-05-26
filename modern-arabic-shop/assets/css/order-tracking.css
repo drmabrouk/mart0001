@@ -1,0 +1,82 @@
+/* Order Tracking & History Styles */
+.mas-order-history {
+    padding: 15px;
+}
+
+.mas-order-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.mas-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.mas-order-serial {
+    font-weight: bold;
+    color: #333;
+}
+
+.mas-order-status {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.mas-status-pending { background: #fff3cd; color: #856404; }
+.mas-status-processing { background: #cce5ff; color: #004085; }
+.mas-status-shipped { background: #d4edda; color: #155724; }
+.mas-status-delivered { background: #28a745; color: #fff; }
+.mas-status-cancelled { background: #f8d7da; color: #721c24; }
+
+.mas-order-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.mas-button-danger {
+    background: #dc3545 !important;
+}
+
+/* Tracking Lifecycle Dots */
+.mas-order-tracking-lifecycle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.mas-order-tracking-lifecycle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: #eee;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.mas-track-step {
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+.mas-track-step.active {
+    background: #28a745;
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2);
+}
